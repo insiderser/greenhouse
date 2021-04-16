@@ -9,9 +9,9 @@ namespace soil_moisture {
 
     state getMoistureLevel() {
         int moisture = analogRead(PIN_NUMBER);
-        if (moisture < NORMAL_MOISTURE_VALUE) {
+        if (moisture < LOWER_MOISTURE_BOUND) {
             return NOT_ENOUGH_MOISTURE;
-        } else if (moisture > NORMAL_MOISTURE_VALUE) {
+        } else if (moisture > UPPER_MOISTURE_BOUND) {
             return TOO_MOIST;
         } else return NORMAL;
     }
