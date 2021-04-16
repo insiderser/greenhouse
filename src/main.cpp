@@ -1,6 +1,8 @@
 #include <Arduino.h>
+#include "uv_lamp/uv_lamp.h"
+
 void setup() {
-// write your initialization code here
+    uv_lamp::initialize_pin();
 }
 
 void loop() {
