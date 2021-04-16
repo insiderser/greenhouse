@@ -7,4 +7,12 @@ namespace uv_lamp {
         pinMode(PIN_NUMBER, OUTPUT);
     }
 
+    void turnOn() {
+        digitalWrite(PIN_NUMBER, 255);
+    }
+
+    void turnOff() {
+        digitalWrite(PIN_NUMBER, 0);
+    }
+
 }

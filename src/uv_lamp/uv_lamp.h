@@ -6,4 +6,8 @@ namespace uv_lamp {
 
     void initialize_pin();
 
+    void turnOn();
+
+    void turnOff();
+
 }
