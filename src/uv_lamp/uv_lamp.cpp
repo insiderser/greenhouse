@@ -8,11 +8,11 @@ namespace uv_lamp {
     }
 
     void turnOn() {
-        digitalWrite(PIN_NUMBER, 255);
+        digitalWrite(PIN_NUMBER, HIGH);
     }
 
     void turnOff() {
-        digitalWrite(PIN_NUMBER, 0);
+        digitalWrite(PIN_NUMBER, LOW);
     }
 
 }
