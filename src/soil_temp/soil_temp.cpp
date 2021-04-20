@@ -1,19 +1,38 @@
 #include "Arduino.h"
 #include "soil_temp.h"
+#include "OneWire.h"
 
 namespace soil_temp {
 
     void initialize_pin() {
-        pinMode(PIN_NUMBER, INPUT);
+        OneWire sensor(PIN_NUMBER);
     }
 
     state getTemperatureLevel() {
-        int temp = analogRead(PIN_NUMBER);
-        if (temp < LOWER_TEMP_BOUND) {
+        byte data[2];
+
+        sensor.reset();
+        sensor.write(0xCC);
+        sensor.write(0x44);
+
+        delay(1000); 
+
+        sensor.reset();
+        sensor.write(0xCC);
+        sensor.write(0xBE);
+
+        data[0] = sensor.read();
+        data[1] = sensor.read();
+
+        float temperature = ((data[1] << 8) | data[0]) * 0.0625;
+
+        if (temperature < LOWER_TEMP_BOUND) {
             return TOO_COLD;
-        } else if (temp > UPPER_TEMP_BOUND) {
+        }
+        else if (temperature > UPPER_TEMP_BOUND) {
             return TOO_HOT;
-        } else return NORMAL;
+        }
+        else return NORMAL;
     }
 
 }
