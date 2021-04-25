@@ -17,8 +17,8 @@ namespace air_sensor {
 
     void initialize();
 
-    state get_air_humidity();
+    state_humidity get_air_humidity();
 
-    state get_air_temperature();
+    state_temperature get_air_temperature();
 
 }
