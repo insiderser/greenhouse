@@ -24,5 +24,17 @@ void setup() {
 }
 
 void loop() {
-    // write your code here
+    switch (air_sensor::get_air_humidity()) 
+    {
+        case NOT_ENOUGH_HUMIDITY:
+            water_sprinkler::start_sprinkling();
+            break;
+        case HIGH_HUMIDITY:
+            cooler::start_cooling();
+            break;
+        case NORMAL_HUMIDITY:
+            //skip
+            break;
+
+    }    
 }
