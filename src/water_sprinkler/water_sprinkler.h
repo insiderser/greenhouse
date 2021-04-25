@@ -2,6 +2,8 @@
 
 namespace water_sprinkler {
 
+    const int PIN = 9;
+
     void initialize();
 
     void start_sprinkling();
