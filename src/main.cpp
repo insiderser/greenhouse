@@ -7,6 +7,8 @@
 #include "cooler/cooler.h"
 #include "air_sensor/air_sensor.h"
 
+void air_sensor_logic();
+
 void setup() {
     uv_lamp::initialize_pin();
     soil_moisture::initialize_pin();
@@ -24,17 +26,39 @@ void setup() {
 }
 
 void loop() {
+    air_sensor_logic();
+}
+
+void air_sensor_logic() {
+    // Check air humidity and start process depending on its value
     switch (air_sensor::get_air_humidity()) 
     {
     case air_sensor::NOT_ENOUGH_HUMIDITY:
+            cooler::stop_cooling();
             water_sprinkler::start_sprinkling();
             break;
     case air_sensor::HIGH_HUMIDITY:
+            water_sprinkler::stop_sprinkling();
             cooler::start_cooling();
             break;
     case air_sensor::NORMAL_HUMIDITY:
             //skip
             break;
-
-    }    
+    }   
+    
+    // Check air temperature and start process depending on its value
+    switch (air_sensor::get_air_temperature()) 
+    {
+    case air_sensor::NOT_ENOUGH_TEMPERATURE:
+        // raise temperature level (how??? we dont have heater)
+        cooler::stop_cooling();
+        break;
+    case air_sensor::HIGH_TEMPERATURE:
+        cooler::start_cooling();
+        break;
+    case air_sensor::NORMAL_TEMPERATURE:
+        //skip
+        break;
+    }   
+     
 }
