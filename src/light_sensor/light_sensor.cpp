@@ -8,6 +8,13 @@ namespace air_sensor {
     }
 
     state get_illuminance() {
-        
+        int val = analogRead(PIN_NUMBER);
+        if (val < LOWER_ILLUM_BOUND) {
+            return NOT_ENOUGH_ILLUM;
+        }
+        else if (val > UPPER_ILLUM_BOUND) {
+            return HIGH_ILLUM;
+        }
+        else return NORMAL_ILLUM;
     }
 }
