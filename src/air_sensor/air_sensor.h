@@ -1,4 +1,5 @@
 #pragma once
+#include "../../lib/stDHT/stDHT.h"
 
 namespace air_sensor {
 
