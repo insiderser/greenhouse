@@ -6,6 +6,7 @@
 #include "drip_irrigation/drip_irrigation.h"
 #include "cooler/cooler.h"
 #include "air_sensor/air_sensor.h"
+#include "light_sensor/light_sensor.h"
 
 void air_sensor_logic();
 void light_sensor_logic();
@@ -69,13 +70,13 @@ void light_sensor_logic() {
     // Checks illuminance level and start process depending on its value
     switch (light_sensor::get_illuminance()) 
     {
-    case light_sensor::NOT_ENOUGH_ILLUMINANCE:
+    case light_sensor::NOT_ENOUGH_ILLUM:
         uv_lamp::turnOn();
         break;
-    case light_sensor::HIGH_ILLUMINANCE:
+    case light_sensor::HIGH_ILLUM:
         uv_lamp::turnOff();
         break;
-    case light_sensor::NORMAL_ILLUMINANCE:
+    case light_sensor::NORMAL_ILLUM:
         //skip
         break;
     }   
