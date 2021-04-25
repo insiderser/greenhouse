@@ -11,7 +11,7 @@ namespace air_sensor {
         digitalWrite(PIN_NUMBER, HIGH);
     }
 
-    state get_air_humidity() {
+    state_humidity get_air_humidity() {
         int hum = sens.readHumidity(PIN_NUMBER);
         if (hum <= LOWER_HUMIDITY_BOUND){
             return NOT_ENOUGH_HUMIDITY; 
@@ -22,7 +22,7 @@ namespace air_sensor {
         else return NORMAL_HUMIDITY;
     }
 
-    state get_air_temperature() {
+    state_temperature get_air_temperature() {
         int temp = sens.readTemperature(PIN_NUMBER);
         if (temp < LOWER_TEMPERATURE_BOUND) {
             return NOT_ENOUGH_TEMPERATURE;
