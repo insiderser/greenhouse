@@ -1,4 +1,6 @@
 #pragma once
+#include "Arduino.h"
+#include "../../lib/stDHT/stDHT.h"
 
 namespace air_sensor {
 
