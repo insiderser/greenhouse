@@ -8,6 +8,7 @@
 #include "air_sensor/air_sensor.h"
 
 void air_sensor_logic();
+void light_sensor_logic();
 
 void setup() {
     uv_lamp::initialize_pin();
@@ -17,6 +18,7 @@ void setup() {
     drip_irrigation::initialize();
     cooler::initialize();
     air_sensor::initialize();
+    light_sensor::initialize();
 
     // example usage
     uv_lamp::turnOn();
@@ -30,7 +32,7 @@ void loop() {
 }
 
 void air_sensor_logic() {
-    // Check air humidity and start process depending on its value
+    // Checks air humidity and start process depending on its value
     switch (air_sensor::get_air_humidity()) 
     {
     case air_sensor::NOT_ENOUGH_HUMIDITY:
@@ -46,7 +48,7 @@ void air_sensor_logic() {
             break;
     }   
     
-    // Check air temperature and start process depending on its value
+    // Checks air temperature and start process depending on its value
     switch (air_sensor::get_air_temperature()) 
     {
     case air_sensor::NOT_ENOUGH_TEMPERATURE:
@@ -60,5 +62,20 @@ void air_sensor_logic() {
         //skip
         break;
     }   
-     
+}
+
+void light_sensor_logic() {
+    // Checks illuminance level and start process depending on its value
+    switch (light_sensor::get_illuminance()) 
+    {
+    case light_sensor::NOT_ENOUGH_ILLUMINANCE:
+        uv_lamp::turnOn();
+        break;
+    case light_sensor::HIGH_ILLUMINANCE:
+        uv_lamp::turnOff();
+        break;
+    case light_sensor::NORMAL_ILLUMINANCE:
+        //skip
+        break;
+    }   
 }
