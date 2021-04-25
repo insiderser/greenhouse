@@ -13,7 +13,7 @@ namespace soil_temp {
     const int LOWER_TEMP_BOUND = 80;
     const int UPPER_TEMP_BOUND = 120;
 
-    enum state { TOO_COLD, NORMAL, TOO_HOT };
+    enum state { TOO_COLD, TOO_HOT, NORMAL };
 
     void initialize_pin();
 
