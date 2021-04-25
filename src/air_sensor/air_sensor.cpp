@@ -1,6 +1,4 @@
-#include "Arduino.h"
 #include "air_sensor.h"
-#include "stDHT.h"
 
 namespace air_sensor {
 
