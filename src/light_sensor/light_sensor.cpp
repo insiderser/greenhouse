@@ -1,6 +1,6 @@
 #include "light_sensor.h"
 
-namespace air_sensor {
+namespace light_sensor {
 
     void initialize() {
         pinMode(PIN_NUMBER, INPUT);
