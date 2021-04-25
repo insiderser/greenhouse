@@ -11,8 +11,9 @@ namespace air_sensor {
     const int LOWER_HUMIDITY_BOUND = 40;
     const int UPPER_HUMIDITY_BOUND = 55;
 
-    enum state { NOT_ENOUGH_HUMIDITY, HIGH_HUMIDITY, NORMAL_HUMIDITY, NOT_ENOUGH_TEMPERATURE,
-        HIGH_TEMPERATURE, NORMAL_TEMPERATURE};
+    enum state_humidity { NOT_ENOUGH_HUMIDITY, HIGH_HUMIDITY, NORMAL_HUMIDITY};
+
+    enum state_temperature { NOT_ENOUGH_TEMPERATURE, HIGH_TEMPERATURE, NORMAL_TEMPERATURE };
 
     void initialize();
 
