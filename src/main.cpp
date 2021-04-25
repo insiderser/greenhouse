@@ -29,6 +29,7 @@ void setup() {
 
 void loop() {
     air_sensor_logic();
+    light_sensor_logic();
 }
 
 void air_sensor_logic() {
