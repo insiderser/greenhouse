@@ -2,9 +2,9 @@
 
 namespace air_sensor {
 
+    DHT sens(DHT11);
+
     void initialize() {
-        // TODO: check operability
-        DHT sens(DHT11);
         pinMode(PIN_NUMBER, INPUT);
         digitalWrite(PIN_NUMBER, HIGH);
     }
@@ -12,7 +12,7 @@ namespace air_sensor {
     state_humidity get_air_humidity() {
         int hum = sens.readHumidity(PIN_NUMBER);
         if (hum <= LOWER_HUMIDITY_BOUND){
-            return NOT_ENOUGH_HUMIDITY; 
+            return NOT_ENOUGH_HUMIDITY;
         }
         else if (hum >= UPPER_HUMIDITY_BOUND) {
             return HIGH_HUMIDITY;
