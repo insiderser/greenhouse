@@ -11,7 +11,7 @@ set(CMAKE_C_COMPILER_WORKS 1)
 set(CMAKE_CXX_COMPILER_WORKS 1)
 set(CMAKE_BUILD_TYPE "leonardo")
 
-project("untitled" C CXX)
+project("greenhouse" C CXX)
 
 include(CMakeListsPrivate.txt)
 
