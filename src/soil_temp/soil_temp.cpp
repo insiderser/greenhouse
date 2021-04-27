@@ -1,11 +1,13 @@
 #include "Arduino.h"
 #include "soil_temp.h"
-#include "OneWire.h"
+#include "../../lib/OneWire-2.3.5/OneWire.h"
 
 namespace soil_temp {
 
+    OneWire sensor(PIN_NUMBER);
+
     void initialize_pin() {
-        OneWire sensor(PIN_NUMBER);
+        // Ignored
     }
 
     state getTemperatureLevel() {
@@ -15,7 +17,7 @@ namespace soil_temp {
         sensor.write(0xCC);
         sensor.write(0x44);
 
-        delay(1000); 
+        delay(1000);
 
         sensor.reset();
         sensor.write(0xCC);
