@@ -2,7 +2,8 @@
 
 namespace water_sprinkler {
 
-    const int PIN = 9;
+    const int VALVE_PIN = 9;
+    const int PUMP_PIN = 11;
 
     void initialize();
 

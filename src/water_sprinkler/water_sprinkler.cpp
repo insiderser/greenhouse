@@ -4,16 +4,18 @@
 namespace water_sprinkler {
 
     void initialize() {
-        // TODO
-        pinMode(PIN, OUTPUT);
+        pinMode(PUMP_PIN, OUTPUT);
+        pinMode(VALVE_PIN, OUTPUT);
     }
 
     void start_sprinkling() {
-        digitalWrite(PIN, HIGH);
+        digitalWrite(VALVE_PIN, HIGH);
+        digitalWrite(PUMP_PIN, HIGH);
     }
 
     void stop_sprinkling() {
-        digitalWrite(PIN, LOW);
+        digitalWrite(PUMP_PIN, LOW);
+        digitalWrite(VALVE_PIN, LOW);
     }
 
 }
